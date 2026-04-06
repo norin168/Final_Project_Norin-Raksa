@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Salary Prediction</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; background: #f5f5f5; }
+        form { line-height: 2.5; background: white; padding: 20px; border-radius: 10px; width: 500px; }
+        select, input { padding: 5px; width: 300px; }
+        label { display: inline-block; width: 180px; font-weight: bold; }
+        h2 { color: #333; }
+        .result { margin-top: 20px; font-size: 20px; font-weight: bold; color: green; }
+    </style>
+</head>
+<body>
+
+<h2>Salary Prediction</h2>
+
+<form action="/predict" method="post">
+    <label>Work Year:</label>
+    <input type="number" name="work_year" placeholder="e.g. 2026" required><br>
+
+    <label>Experience Level:</label>
+    <select name="experience_level" required>
+        <option value="EN">Entry</option>
+        <option value="MI">Mid</option>
+        <option value="SE">Senior</option>
+        <option value="EX">Executive</option>
+    </select><br>
+
+    <label>Employment Type:</label>
+    <select name="employment_type" required>
+        <option value="FT">Full-Time</option>
+        <option value="PT">Part-Time</option>
+        <option value="CT">Contract</option>
+        <option value="FL">Freelance</option>
+    </select><br>
+
+    <label>Job Title:</label>
+    <select name="job_title" required>
+        <option value="Data Scientist">Data Scientist</option>
+        <option value="Machine Learning Scientist">Machine Learning Scientist</option>
+        <option value="Big Data Engineer">Big Data Engineer</option>
+        <option value="Product Data Analyst">Product Data Analyst</option>
+        <option value="Machine Learning Engineer">Machine Learning Engineer</option>
+        <option value="Data Analyst">Data Analyst</option>
+        <option value="Lead Data Scientist">Lead Data Scientist</option>
+        <option value="Business Data Analyst">Business Data Analyst</option>
+        <option value="Lead Data Engineer">Lead Data Engineer</option>
+        <option value="Lead Data Analyst">Lead Data Analyst</option>
+        <option value="Data Engineer">Data Engineer</option>
+        <option value="Data Science Consultant">Data Science Consultant</option>
+        <option value="BI Data Analyst">BI Data Analyst</option>
+        <option value="Director of Data Science">Director of Data Science</option>
+        <option value="Research Scientist">Research Scientist</option>
+        <option value="Machine Learning Manager">Machine Learning Manager</option>
+        <option value="Data Engineering Manager">Data Engineering Manager</option>
+        <option value="Machine Learning Infrastructure Engineer">Machine Learning Infrastructure Engineer</option>
+        <option value="ML Engineer">ML Engineer</option>
+        <option value="AI Scientist">AI Scientist</option>
+        <option value="Computer Vision Engineer">Computer Vision Engineer</option>
+        <option value="Principal Data Scientist">Principal Data Scientist</option>
+        <option value="Data Science Manager">Data Science Manager</option>
+        <option value="Head of Data">Head of Data</option>
+        <option value="3D Computer Vision Researcher">3D Computer Vision Researcher</option>
+        <option value="Data Analytics Engineer">Data Analytics Engineer</option>
+        <option value="Applied Data Scientist">Applied Data Scientist</option>
+        <option value="Marketing Data Analyst">Marketing Data Analyst</option>
+        <option value="Cloud Data Engineer">Cloud Data Engineer</option>
+        <option value="Financial Data Analyst">Financial Data Analyst</option>
+        <option value="Computer Vision Software Engineer">Computer Vision Software Engineer</option>
+        <option value="Director of Data Engineering">Director of Data Engineering</option>
+        <option value="Data Science Engineer">Data Science Engineer</option>
+        <option value="Principal Data Engineer">Principal Data Engineer</option>
+        <option value="Machine Learning Developer">Machine Learning Developer</option>
+        <option value="Applied Machine Learning Scientist">Applied Machine Learning Scientist</option>
+        <option value="Data Analytics Manager">Data Analytics Manager</option>
+        <option value="Head of Data Science">Head of Data Science</option>
+        <option value="Data Specialist">Data Specialist</option>
+        <option value="Data Architect">Data Architect</option>
+        <option value="Finance Data Analyst">Finance Data Analyst</option>
+        <option value="Principal Data Analyst">Principal Data Analyst</option>
+        <option value="Big Data Architect">Big Data Architect</option>
+        <option value="Staff Data Scientist">Staff Data Scientist</option>
+        <option value="Analytics Engineer">Analytics Engineer</option>
+        <option value="ETL Developer">ETL Developer</option>
+        <option value="Head of Machine Learning">Head of Machine Learning</option>
+        <option value="NLP Engineer">NLP Engineer</option>
+        <option value="Lead Machine Learning Engineer">Lead Machine Learning Engineer</option>
+        <option value="Data Analytics Lead">Data Analytics Lead</option>
+    </select><br>
+
+    <label>Company Size:</label>
+    <select name="company_size" required>
+        <option value="S">Small</option>
+        <option value="M">Medium</option>
+        <option value="L">Large</option>
+    </select><br><br>
+
+    <input type="submit" value="Predict Salary">
+</form>
+
+{% if prediction %}
+<div class="result">
+    Predicted Salary: ${{ prediction }}
+</div>
+{% endif %}
+
+</body>
+</html>
